@@ -10,8 +10,10 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const handleTaskDelete = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    console.log("Deleting task with id:", id); 
+    setTasks(tasks.filter((task) => (task.id ?? tasks.indexOf(task)) !== id));
   };
+
 
   const handleTaskFormSubmit = (newTask) => {
     setTasks([...tasks, { ...newTask, id: tasks.length + 1 }]);
@@ -22,6 +24,8 @@ function App() {
       ? tasks
       : tasks.filter((task) => task.category === selectedCategory);
 
+      console.log("Filtered Tasks:", filteredTasks);
+      
   return (
     <div className="App">
       <h2>My Tasks</h2>
@@ -40,3 +44,4 @@ function App() {
 }
 
 export default App;
+

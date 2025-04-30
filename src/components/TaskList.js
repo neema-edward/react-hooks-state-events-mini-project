@@ -2,15 +2,15 @@ import React from "react";
 import Task from "./Task";
 
 function TaskList({ tasks, onDeleteTask }) {
-  console.log("Tasks:", tasks); // Debug: Log tasks
+  console.log("Tasks:", tasks); 
   return (
     <div className="tasks">
       {tasks.map((task, index) => (
         <Task
-          key={task.id ?? index} // Fallback to index if id is missing
+          key={task.id ?? index} 
           text={task.text}
           category={task.category}
-          onDelete={() => onDeleteTask(task.id)}
+          onDelete={onDeleteTask}
         />
       ))}
     </div>

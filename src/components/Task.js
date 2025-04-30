@@ -1,8 +1,10 @@
 import React from "react";
 
-function Task({ id, text, category, onDelete }) {
+function Task({ text, category, onDelete }) {
   const handleDelete = () => {
-    onDelete(id);
+    console.log("Delete button clicked for task:", text); // Debug
+    console.log("onDelete function:", onDelete);
+    onDelete(); 
   };
 
   return (
